@@ -1,0 +1,7 @@
+---
+
+- java_path: usr/lib/jvm/java-8-oracle
+- ubooquity_installdir: /opt/ubooquity
+- ubooquity_libaryport: 2202
+- ubooquity_adminport: 2203
+- ubooquity_workdir: '{{ uboquity_installdir }}'

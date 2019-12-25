@@ -1,0 +1,40 @@
+---
+
+- name: create user and group for ubooquity
+  block:
+    - group:
+        name: ubooquity
+        state: present
+    - user:
+        name: ubooquity
+        state: present
+        groups: ubooquity
+        shell: /usr/bin/false
+
+- name: ensure right Java version will be used (jenv)
+  shell: |
+    jenv add "$('{{ java_path }}')"
+    jenv local java-8-oracle
+
+    exit $?
+  become: true
+  become_user: ubooquity
+
+- name: install ubooquity
+  unarchive:
+    src: http://vaemendis.net/ubooquity/service/download.php
+    dest: /opt/ubooquity
+    creates: yes
+    remote_src: yes
+    owner: ubooquity
+    mode: u=rwx,g=rwx
+
+- name: deploy service definition and start service
+  block:
+    - template:
+        src: templates/ubooquity.service.j2
+        dest: /etc/systemd/sytstem/ubooquity.service
+    - systemd:
+        name: ubooquity
+        state: started
+        enabled: yes

@@ -1,0 +1,43 @@
+---
+
+dependencies:
+  - g4s.java
+
+galaxy_info:
+  author: 'Gregor A. Segner'
+  description: 'Ansible role for installing ubooquity OPDS server'
+  company: ''
+  license: 'MIT'
+  min_ansible_version: '1.8'
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+  categories: [media]
+
+ansigenome_info:
+  galaxy_id: ''
+
+  travis: True
+
+  synopsis: |
+    This is a small ansible role for installing ubooquity service on a
+    Debian based system
+
+  usage: |
+    Role requires additional role [g4s.java](https://github.com/g4s/ansible-java). 
+    Install this dependency with
+
+    ```
+    ansible-galaxy install -r requirements.yml
+    ```
+
+    Afterwards you can include this role in your playbook.
+
+  #custom: |
+  #  Any custom output you want after the usage section...

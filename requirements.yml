@@ -1,0 +1,3 @@
+# g4s,java from github
+- src: https://github.com/g4s/ansible-java
+  name: g4s.java

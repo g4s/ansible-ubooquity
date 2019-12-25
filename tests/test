@@ -1,0 +1,11 @@
+---
+
+#!/bin/bash
+
+# test: Test media_ubooquity
+# Copyright (C) 2019 Gregor A. schlumpi Segner <gregor.segner@gmail.com>
+
+. "lib/test"
+
+assert_playbook_runs
+assert_playbook_idempotent

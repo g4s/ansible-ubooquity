@@ -1,0 +1,11 @@
+[Unit]
+Description=Ubooquity
+After=network.target
+
+[Service]
+User=ubooquity
+WorkingDirectory={{ ubooquity_workdir }}
+ExecStart=java -jar Ubooquity.jar --headless --workdir {{ ubooquity_workdir }} --remotadmin --libraryport {{ ubooquity_libaryport }} --adminport {{ ubooquity_adminport }}
+
+[Install]
+WantedBy=multi-user.target
